@@ -1,2 +1,2 @@
-# Project01
-13_Stephen Berzinsky Homework_Week 13 Project 01
+# scripts
+Linux Scripts and Amson;e Scripts from my CyberClass
