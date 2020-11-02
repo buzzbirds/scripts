@@ -7,15 +7,14 @@ The files in this repository were used to configure the network depicted below.
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook file may be used to install only certain pieces of it, such as Filebeat.
 
-../scripts/ansible/playbook_files/install-elk.yml
-../scripts/ansible/playbook_files/pentest-DVWA.yml
-../scripts/ansible/playbook_files/filebeat-playbook.yml
-../scripts/ansible/playbook_files/metricbeat-playbook.yml
-
-- scripts/ansible/configuration_files/ansible.txt
-- scripts/ansible/ configuration_files/hosts.txt
-- scripts/ansible/ configuration_files/filebeat-config.yml
-- scripts/ansible/ configuration_files/metricbeat-config.yml
+* ../scripts/ansible/playbook_files/install-elk.yml
+* ../scripts/ansible/playbook_files/pentest-DVWA.yml
+* ../scripts/ansible/playbook_files/filebeat-playbook.yml
+* ../scripts/ansible/playbook_files/metricbeat-playbook.yml
+* ../scripts/ansible/configuration_files/ansible.txt
+* ../scripts/ansible/ configuration_files/hosts.txt
+* ../scripts/ansible/ configuration_files/filebeat-config.yml
+* ../scripts/ansible/ configuration_files/metricbeat-config.yml
 
 This document contains the following details:
 - Description of the Topology
@@ -52,7 +51,7 @@ The configuration details of each machine may be found below.
 | Web2         | DVMA Server       | 10.0.0.6      | Linux                   |
 | Elk_VM       | Elk Server        | 10.1.0.4      |  Linux                  |
 
-### Access Policies
+##Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
 
