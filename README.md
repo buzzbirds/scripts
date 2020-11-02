@@ -30,16 +30,17 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 
 Load balancing ensures that the application will be highly available, in addition to restricting inbound access to the network.
 - What aspect of security do load balancers protect?
-   The off-loading function of the load balancer defends against DDoS attacks.  
+The off-loading function of the load balancer defends against DDoS attacks.  
 
-  What is the advantage of a jump box?
-   A jump box provides administrators a secure original point to connect to other servers.  
+- What is the advantage of a jump box?
+  A jump box provides administrators a secure original point to connect to other servers.  
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the file systems of the VMs on the network and system metrics.
 - What does Filebeat watch for?
-   Filebeat monitors log files or locations, collects log events, and forwards them to an indexing utility.
+Filebeat monitors log files or locations, collects log events, and forwards them to an indexing utility.
+
 - What does Metricbeat record?
-   Metricbeat collects metrics from operating system and services running on servers and forward them to an indexing utility.
+Metricbeat collects metrics from operating system and services running on servers and forward them to an indexing utility.
 
  
 The configuration details of each machine may be found below.
@@ -56,15 +57,14 @@ The configuration details of each machine may be found below.
 The machines on the internal network are not exposed to the public Internet. 
 
 Only the Jump Box machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- My public IP address.
-
-## Elk-VM Kabania service can accept connections from the Internet through the Elk-VM-nsg (network security group).
-## Web1 and Web2 DVWA service can accept connection from the Internet through the Red-Team-LB limited by the RedTeam-SG (network security group).
+The Local Workstaions public IP address.
+Elk-VM Kabania service can accept connections from the Internet through the Elk-VM-nsg (network security group).
+Web1 and Web2 DVWA service can accept connection from the Internet through the Red-Team-LB limited by the RedTeam-SG (network security group).
 
 Machines within the network can only be accessed by Ansible.
 - Which machine did you allow to access your ELK VM? 
 Ansible container is the only machine allowed to access Elk-VM from within the virtual network.
-What was its IP address?
+- What was its IP address?
 Ansible container’s IP address is 172.17.0.1.  
 A summary of the access policies in place can be found in the table below.
 
@@ -77,11 +77,11 @@ A summary of the access policies in place can be found in the table below.
 | Web2           | No                       | 10.0.0.4                                 |
 
 
-### Elk Configuration
+# Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
 - What is the main advantage of automating configuration with Ansible?
-   Ansible automation allows development and testing of tasks through simple code before releasing the update to production.  
+Ansible automation allows development and testing of tasks through simple code before releasing the update to production.  
 
  
 The playbook implements the following tasks:
@@ -94,23 +94,20 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-- scripts/linux/docker_ps_output.png
+![] (https://github.com/buzzbirds/scripts/linux/docker_ps_output.png)
 
-### Target Machines & Beats
-This ELK server is configured to monitor the following machines:
-- 10.0.0.5
-- 10.0.0.6
+# Target Machines & Beats
+- This ELK server is configured to monitor the following machines:
+The Elk server is configured to monitor IP addresses, 10.0.0.5 and 10.0.0.6.
 
-We have installed the following Beats on these machines:
-- filebeat 
-- metricbeat
+- We have installed the following Beats on these machines:
+Filebeat adn metricbeat are installed on DVWA servers, Web1 and Web2.
 
-These Beats allow us to collect the following information from each machine:
-- Filebeat monitors log files or locations, collects log events, and forwards them to an indexing utility.
+- These Beats allow us to collect the following information from each machine:
+Filebeat monitors log files or locations, collects log events, and forwards them to an indexing utility.
+Metricbeat collects metrics from operating system and services running on servers and forward them to an indexing utility.
 
-- Metricbeat collects metrics from operating system and services running on servers and forward them to an indexing utility.
-
-### Using the Playbook
+# Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
@@ -118,45 +115,41 @@ SSH into the control node and follow the steps below:
 - Update the install_elk.yml file to include the hosts, remote user, and published_ports.
 - Run the playbook, and navigate to the elk server to check that the installation worked as expected.
 
-_TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it? 
-The playbook file is install_elk.yml.   The file is copied to /etc/ansible
+The playbook file is install_elk.yml.   The file is copied to /etc/ansible.
+
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
 The hosts file should be updated to make Ansible run the playbook on a specific machine.  Update the playbooks’ hosts and remote_user entries, to specify which machine receives which services. 
+
 - _Which URL do you navigate to in order to check that the ELK server is running?
-http://’elk server public IP’:5601/app/kibana#/home
+http://<elk server public IP>:5601/app/kibana#/home
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+## As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 
-# ssh into the jump box form your local workstation
- ssh RedAdmin@<jump_box_public_IP_address>
+- ssh into the jump box form your local workstation
+ssh RedAdmin@<jump_box_public_IP_address>
 
+- List Docker containers to obtain the Ansible container name
+sudo docker container list-a
 
-##List Docker containers to obtain the Ansible container name
- sudo docker container list-a
+- Starting the Ansible container 
+sudo docker container start <Ansible container name>
 
+- Access the Ansible container shell
+sudo docker container attach <Ansible container name>
 
-## Starting the Ansible container 
- sudo docker container start <Ansible container name>
+- Create the following files within the designated directories.  Copy and paste the contents of each file from the Github repo.  The repo file paths are listed above.
+nano /etc/ansible/ansible.cfg
+nano /etc/ansible/hosts  
+nano /etc/ansible/files/filebeat-config.yml
+nano /etc/ansible/files/metricbeat-config.yml
 
+nano /etc/ansible/pentest-DVWA.yml
+nano /etc/ansible/install_elk.yml
+nano /etc/ansible/roles/filebeat-playbook.yml
+nano /etc/ansible/roles/metricbeat-palybook.yml
 
-## Access the Ansible container shell
- sudo docker container attach <Ansible container name>
-
-
-# Create the following files within the designated directories.  Copy and paste the contents of each file from the Github repo.  The repo file paths are listed above.
- nano /etc/ansible/ansible.cfg
- nano /etc/ansible/hosts  
- nano /etc/ansible/files/filebeat-config.yml
- nano /etc/ansible/files/metricbeat-config.yml
-
- nano /etc/ansible/pentest-DVWA.yml
- nano /etc/ansible/install_elk.yml
- nano /etc/ansible/roles/filebeat-playbook.yml
- nano /etc/ansible/roles/metricbeat-palybook.yml
-
-
-# Modify configuration files in their appropriate directories
+- Modify configuration files in their appropriate directories
 Optional Update ansible.cfg line 107 with the default remote_user 
  nano /etc/ansible/ansible.cfg
 
@@ -175,12 +168,12 @@ Verify pentest-DVWA.yml, filebeat-playbook.yml, metricbeat-playbook.yml, and ins
  nano /etc/ansible/roles/filebeat-playbook.yml
  nano /etc/ansible/roles/metricbeat-palybook.yml
 
-# Run the Ansible playbooks
+- Run the Ansible playbooks
  ansible-playbook /etc/ansible/pentest-DVWA.yml
  ansible-playbook /etc/ansible/install_elk.yml
  ansible-playbook /etc/ansible/roles/filebeat-playbook.yml
  ansible-playbook /etc/ansible/roles/metricbeat-palybook.yml
 
-# Connect to webserver through a web browser
+- Connect to webserver through a web browser
 http://<Elk server Pulic IP address>/app/kibana#/home
 http://<Load Balancer Public IP address>/setup.php
