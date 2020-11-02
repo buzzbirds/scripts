@@ -1,2 +1,2 @@
 # scripts
-Linux Scripts and Ansile Scripts from my CyberClass
+Linux Scripts and Ansible Scripts from my CyberClass
