@@ -174,5 +174,5 @@ Verify pentest-DVWA.yml, filebeat-playbook.yml, metricbeat-playbook.yml, and ins
  ansible-playbook /etc/ansible/roles/metricbeat-palybook.yml  
 
 - Connect to webserver through a web browser  
-http://<Elk server Pulic IP address>/app/kibana#/home  
-http://<Load Balancer Public IP address>/setup.php  
+http://*Elk server Pulic IP address*/app/kibana#/home  
+http://*Load Balancer Public IP address*/setup.php  
