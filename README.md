@@ -168,6 +168,6 @@ ansible-playbook /etc/ansible/install_elk.yml
 ansible-playbook /etc/ansible/roles/filebeat-playbook.yml  
 ansible-playbook /etc/ansible/roles/metricbeat-palybook.yml  
 
-- Connect to webserver through a web browser  
+- Connect to the Elk and DVWA webservers through a web browser  
 http://*Elk server Pulic IP address*/app/kibana#/home  
 http://*Load Balancer Public IP address*/setup.php  
