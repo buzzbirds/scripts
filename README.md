@@ -32,7 +32,7 @@ Load balancing ensures that the application will be highly available, in additio
 The off-loading function of the load balancer defends against DDoS attacks.      
 
 - What is the advantage of a jump box?  
-  A jump box provides administrators a secure original point to connect to other servers.    
+  A jump box provides administrators a secure origin point to connect to other servers.    
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the file systems of the VMs on the network and system metrics.
 - What does Filebeat watch for?  
@@ -55,10 +55,10 @@ The configuration details of each machine may be found below.
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the Jump Box machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-The Local Workstaions public IP address.  
-Elk-VM Kabania service can accept connections from the Internet through the Elk-VM-nsg (network security group).  
-Web1 and Web2 DVWA service can accept connection from the Internet through the Red-Team-LB limited by the RedTeam-SG (network security group).  
+Only the Jump Box machine can accept ssh connections from the Internet. Access to this machine is only allowed from the following IP addresses:
+The Local Workstaions public IP address is only allowed to access the Jump Box.  
+Elk-VM Kabania service can accept TCP connections from the Internet through the Elk-VM-nsg (network security group).  
+Web1 and Web2, the DVWA service, can accept TCP connections from the Internet through the Red-Team-LB limited by the RedTeam-SG (network security group).  
 
 Machines within the network can only be accessed by Ansible.  
 - Which machine did you allow to access your ELK VM?   
@@ -91,7 +91,7 @@ The playbook implements the following tasks:
 - Increase virtual memory  
 - Download and launch elk container with specified ports  
 
-The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.  
+The following screenshot displays the result of running 'docker ps' after successfully configuring the ELK instance.  
 
 ![](https://github.com/buzzbirds/scripts/blob/main/linux/docker_ps_output.png)
 
@@ -100,7 +100,7 @@ The following screenshot displays the result of running `docker ps` after succes
 The Elk server is configured to monitor IP addresses, 10.0.0.5 and 10.0.0.6.  
 
 - We have installed the following Beats on these machines:  
-Filebeat adn metricbeat are installed on DVWA servers, Web1 and Web2.  
+Filebeat and metricbeat are installed on DVWA servers, Web1 and Web2.  
 
 - These Beats allow us to collect the following information from each machine:  
 Filebeat monitors log files or locations, collects log events, and forwards them to an indexing utility.  
