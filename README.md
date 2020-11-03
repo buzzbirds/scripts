@@ -126,7 +126,7 @@ http://*elk server public IP*:5601/app/kibana#/home
 ## As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._  
 
 - ssh into the jump box form your local workstation  
-`ssh RedAdmin@*jump_box_public_IP_address`
+`ssh RedAdmin@jump_box_public_IP_address`
 
 - List Docker containers to obtain the Ansible container name  
 `sudo docker container list-a`  
