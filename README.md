@@ -11,8 +11,8 @@ These files have been tested and used to generate a live ELK deployment on Azure
 ../scripts/ansible/playbook_files/pentest-DVWA.yml  
 ../scripts/ansible/playbook_files/filebeat-playbook.yml  
 ../scripts/ansible/playbook_files/metricbeat-playbook.yml  
-../scripts/ansible/configuration_files/ansible.txt  
-../scripts/ansible/configuration_files/hosts.txt  
+../scripts/ansible/configuration_files/ansible.cfg  
+../scripts/ansible/configuration_files/hosts  
 ../scripts/ansible/configuration_files/filebeat-config.yml  
 ../scripts/ansible/configuration_files/metricbeat-config.yml  
 
