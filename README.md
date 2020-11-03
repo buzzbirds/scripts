@@ -96,13 +96,13 @@ The following screenshot displays the result of running `docker ps` after succes
 ![](https://github.com/buzzbirds/scripts/blob/main/linux/docker_ps_output.png)
 
 ## Target Machines & Beats
-- This ELK server is configured to monitor the following machines:
+- This ELK server is configured to monitor the following machines:  
 The Elk server is configured to monitor IP addresses, 10.0.0.5 and 10.0.0.6.  
 
-- We have installed the following Beats on these machines:
+- We have installed the following Beats on these machines:  
 Filebeat adn metricbeat are installed on DVWA servers, Web1 and Web2.  
 
-- These Beats allow us to collect the following information from each machine:
+- These Beats allow us to collect the following information from each machine:  
 Filebeat monitors log files or locations, collects log events, and forwards them to an indexing utility.  
 Metricbeat collects metrics from operating system and services running on servers and forward them to an indexing utility.  
 
