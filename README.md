@@ -91,7 +91,7 @@ The playbook implements the following tasks:
 - Increase virtual memory  
 - Download and launch elk container with specified ports  
 
-The following screenshot displays the result of running 'docker ps' after successfully configuring the ELK instance.  
+The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.  
 
 ![](https://github.com/buzzbirds/scripts/blob/main/linux/docker_ps_output.png)
 
@@ -126,47 +126,47 @@ http://*elk server public IP*:5601/app/kibana#/home
 ## As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._  
 
 - ssh into the jump box form your local workstation  
-ssh RedAdmin@*jump_box_public_IP_address* 
+`ssh RedAdmin@*jump_box_public_IP_address`
 
 - List Docker containers to obtain the Ansible container name  
-sudo docker container list-a  
+`sudo docker container list-a`  
 
 - Starting the Ansible container   
-sudo docker container start <Ansible container name>  
+`sudo docker container start <Ansible container name>`  
 
 - Access the Ansible container shell  
-sudo docker container attach <Ansible container name>  
+`sudo docker container attach <Ansible container name>`  
 
 - Create the following files within the designated directories.  Copy and paste the contents of each file from the Github repo.  The repo file paths are listed above.  
-nano /etc/ansible/ansible.cfg  
-nano /etc/ansible/hosts    
-nano /etc/ansible/files/filebeat-config.yml  
-nano /etc/ansible/files/metricbeat-config.yml  
-nano /etc/ansible/pentest-DVWA.yml  
-nano /etc/ansible/install_elk.yml  
-nano /etc/ansible/roles/filebeat-playbook.yml  
-nano /etc/ansible/roles/metricbeat-palybook.yml  
+`nano /etc/ansible/ansible.cfg`  
+`nano /etc/ansible/hosts`    
+`nano /etc/ansible/files/filebeat-config.yml`  
+`nano /etc/ansible/files/metricbeat-config.yml`  
+`nano /etc/ansible/pentest-DVWA.yml`  
+`nano /etc/ansible/install_elk.yml`  
+`nano /etc/ansible/roles/filebeat-playbook.yml`  
+`nano /etc/ansible/roles/metricbeat-palybook.yml`  
 
 - Modify configuration files in their appropriate directories    
 Optional Update ansible.cfg line 107 with the default remote_user     
-*nano /etc/ansible/ansible.cfg*     
+`nano /etc/ansible/ansible.cfg`    
 Optional Update hosts file line 18 - Ex 2: A collection of hosts section – to include [webservers] and [elkservers]    
-*nano /etc/ansible/hosts*     
+`nano /etc/ansible/hosts`     
 Update filebeat-confg.yml line 1805 with Elk server private IP address    
-*nano /etc/ansible/files/filebeat-config.yml*   
+`nano /etc/ansible/files/filebeat-config.yml`   
 Update metric-config.yml line 62 with Elk servicer private IP address    
-*nano /etc/ansible/files/metricbeat-config.yml*  
+`nano /etc/ansible/files/metricbeat-config.yml`  
 Verify pentest-DVWA.yml, filebeat-playbook.yml, metricbeat-playbook.yml, and install_elk.yml hosts and remote_user entries are set correctly in accordance with the hosts file, ansible.cfg or virtual machine user name (if not the default remote_user).   
-*nano /etc/ansible/pentest-DVWA.yml*   
-*nano /etc/ansible/install_elk.yml*    
-*nano /etc/ansible/roles/filebeat-playbook.yml*    
-*nano /etc/ansible/roles/metricbeat-palybook.yml*    
+`nano /etc/ansible/pentest-DVWA.yml`  
+`nano /etc/ansible/install_elk.yml`    
+`nano /etc/ansible/roles/filebeat-playbook.yml`    
+`nano /etc/ansible/roles/metricbeat-palybook.yml`    
 
 - Run the Ansible playbooks  
-ansible-playbook /etc/ansible/pentest-DVWA.yml  
-ansible-playbook /etc/ansible/install_elk.yml  
-ansible-playbook /etc/ansible/roles/filebeat-playbook.yml  
-ansible-playbook /etc/ansible/roles/metricbeat-palybook.yml  
+`ansible-playbook /etc/ansible/pentest-DVWA.yml`  
+`ansible-playbook /etc/ansible/install_elk.yml`  
+`ansible-playbook /etc/ansible/roles/filebeat-playbook.yml`  
+`ansible-playbook /etc/ansible/roles/metricbeat-palybook.yml`  
 
 - Connect to the Elk and DVWA webservers through a web browser  
 http://*Elk server Pulic IP address*/app/kibana#/home  
