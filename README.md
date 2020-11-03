@@ -28,8 +28,8 @@ This document contains the following details:
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the Damn Vulnerable Web Application.  
 
 Load balancing ensures that the application will be highly available, in addition to restricting inbound access to the network.  
-- What aspect of security do load balancers protect?
-The off-loading function of the load balancer defends against DDoS attacks.    
+- What aspect of security do load balancers protect?  
+The off-loading function of the load balancer defends against DDoS attacks.      
 
 - What is the advantage of a jump box?  
   A jump box provides administrators a secure original point to connect to other servers.    
