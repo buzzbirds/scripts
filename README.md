@@ -121,7 +121,7 @@ The playbook file is install_elk.yml.   The file is copied to /etc/ansible.
 The hosts file should be updated to make Ansible run the playbook on a specific machine.  Update the playbooks’ hosts and remote_user entries, to specify which machine receives which services.   
 
 - _Which URL do you navigate to in order to check that the ELK server is running?  
-http://<elk server public IP>:5601/app/kibana#/home  
+http://*elk server public IP*:5601/app/kibana#/home  
 
 ## As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._  
 
